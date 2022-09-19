@@ -67,43 +67,43 @@
 
 ### Complete this source code in order to print 3 times a string stored in the variable str, followed by its first 9 characters.
 
-####You can find the source code here
-####The output of the program should be:
+#### You can find the source code here
+#### The output of the program should be:
 3 times the value of str
 followed by a new line
 followed by the 9 first characters of str
 followed by a new line
-####You are not allowed to use any loops or conditional statement
-####Your program should be maximum 5 lines long
+#### You are not allowed to use any loops or conditional statement
+#### Your program should be maximum 5 lines long
 guillaume@ubuntu:~/py/0x00$ ./5-print_string.py 
 Holberton SchoolHolberton SchoolHolberton School
 Holberton
 guillaume@ubuntu:~/py/0x00$
 
-##6. Play with strings
+## 6. Play with strings
 
-###Complete this source code to print Welcome to Holberton School!
+### Complete this source code to print Welcome to Holberton School!
 
-####You can find the source code here
-####You are not allowed to use any loops or conditional statements.
-####You have to use the variables str1 and str2 in your new line of code
-####Your program should be exactly 5 lines long
+#### You can find the source code here
+#### You are not allowed to use any loops or conditional statements.
+#### You have to use the variables str1 and str2 in your new line of code
+#### Your program should be exactly 5 lines long
 guillaume@ubuntu:~/py/0x00$ ./6-concat.py
 Welcome to Holberton School!
 guillaume@ubuntu:~/py/0x00$ wc -l 6-concat.py
 5 6-concat.py
 guillaume@ubuntu:~/py/0x00$
 
-##7. Copy - Cut - Paste
+## 7. Copy - Cut - Paste
 
-###Complete this source code
+### Complete this source code
 
-####You can find the source code here
-####You are not allowed to use any loops or conditional statements
-####Your program should be exactly 8 lines long
-####word_first_3 should contain the first 3 letters of the variable word
-####word_last_2 should contain the last 2 letters of the variable word
-####middle_word should contain the value of the variable word without the first and last letters
+#### You can find the source code here
+#### You are not allowed to use any loops or conditional statements
+#### Your program should be exactly 8 lines long
+#### word_first_3 should contain the first 3 letters of the variable word
+#### word_last_2 should contain the last 2 letters of the variable word
+#### middle_word should contain the value of the variable word without the first and last letters
 guillaume@ubuntu:~/py/0x00$ ./7-edges.py
 First 3 letters: Hol
 Last 2 letters: on
@@ -112,26 +112,26 @@ guillaume@ubuntu:~/py/0x00$ wc -l 7-edges.py
 8 7-edges.py
 guillaume@ubuntu:~/py/0x00$
 
-##8. Create a new sentence
+## 8. Create a new sentence
 
-###Complete this source code to print object-oriented programming with Python, followed by a new line.
+### Complete this source code to print object-oriented programming with Python, followed by a new line.
 
-####You can find the source code here
-####You are not allowed to use any loops or conditional statements
-####Your program should be exactly 5 lines long
-####You are not allowed to create new variables
-####You are not allowed to use string literals
+#### You can find the source code here
+#### You are not allowed to use any loops or conditional statements
+#### Your program should be exactly 5 lines long
+#### You are not allowed to create new variables
+#### You are not allowed to use string literals
 guillaume@ubuntu:~/py/0x00$ ./8-concat_edges.py
 object-oriented programming with Python
 guillaume@ubuntu:~/py/0x00$ wc -l 8-concat_edges.py
 5 8-concat_edges.py
 guillaume@ubuntu:~/py/0x00$
 
-##9. Easter Egg
+## 9. Easter Egg
 
-###Write a Python script that prints “The Zen of Python”, by TimPeters, followed by a new line.
+### Write a Python script that prints “The Zen of Python”, by TimPeters, followed by a new line.
 
-####Your script should be maximum 98 characters long (please check with wc -m 9-easter_egg.py)
+#### Your script should be maximum 98 characters long (please check with wc -m 9-easter_egg.py)
 guillaume@ubuntu:~/py/0x00$ ./9-easter_egg.py
 The Zen of Python, by Tim Peters
 
@@ -156,18 +156,18 @@ If the implementation is easy to explain, it may be a good idea.
 Namespaces are one honking great idea -- let's do more of those!
 guillaume@ubuntu:~/py/0x00$
 
-##10. Linked list cycle
+## 10. Linked list cycle
 
-###Technical interview preparation:
+### Technical interview preparation:
 
 * You are not allowed to google anything
 * Whiteboard first
 * This task and all future technical interview prep tasks will include checks for the efficiency of your solution, i.e. is your solution’s runtime fast enough, does your solution require extra memory usage / mallocs, etc.
-###Write a function in C that checks if a singly linked list has a cycle in it.
+### Write a function in C that checks if a singly linked list has a cycle in it.
 
 * Prototype: int check_cycle(listint_t *list);
 * Return: 0 if there is no cycle, 1 if there is a cycle
-###Requirements:
+### Requirements:
 
 * Only these functions are allowed: write, printf, putchar, puts, malloc, free
 carrie@ubuntu:~/0x00$ cat lists.h
@@ -327,4 +327,4 @@ carrie@ubuntu:~/0x00$$ ./cycle
 Linked list has no cycle
 Linked list has a cycle
 carrie@ubuntu:~/0x00$
-##>Solving a problem is already a big win! but finding the best and optimal way to solve it, it’s way better! Think about the most optimal / fastest way to do it.
+## >Solving a problem is already a big win! but finding the best and optimal way to solve it, it’s way better! Think about the most optimal / fastest way to do it.
