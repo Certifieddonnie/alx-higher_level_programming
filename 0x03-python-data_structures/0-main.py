@@ -1,10 +1,8 @@
 #!/usr/bin/python3
-new_in_list = __import__('4-new_in_list').new_in_list
+delete_at = __import__('11-delete_at').delete_at
 
 my_list = [1, 2, 3, 4, 5]
 idx = 3
-new_element = 9
-new_list = new_in_list(my_list, idx, new_element)
-
+new_list = delete_at(my_list, idx)
 print(new_list)
 print(my_list)
