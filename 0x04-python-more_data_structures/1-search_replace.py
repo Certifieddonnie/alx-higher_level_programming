@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-# A Function that replaces all occurrences of an element by another in a new list.
+# A Function that replaces all occurrences of an element by
+# another in a new list.
 
 def search_replace(my_list, search, replace):
     new_list = my_list[:]
