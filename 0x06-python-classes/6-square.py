@@ -26,12 +26,12 @@ class Square:
 
     @property
     def size(self):
-        """Property of size"""
+        """Property of size. it gets the size."""
         return self.__size
 
     @size.setter
     def size(self, value):
-        """Setters Property for size"""
+        """Setter Property for size"""
         if type(value) != int:
             raise TypeError("size must be an integer")
         if int(value) < 0:
@@ -40,7 +40,7 @@ class Square:
 
     @property
     def position(self):
-        """Property of position"""
+        """Property of position function. it gets the data."""
         return self.__position
 
     @position.setter
