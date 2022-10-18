@@ -1,0 +1,18 @@
+The "3-say_my_name" module
+==============================
+
+>>> say = __import__('3-say_my_name').say_my_name
+
+>>> say("John", "Smith")
+My name is John Smith
+
+>>> say("Jacob")
+My name is Jacob
+
+>>> say("Josh", 67)
+Traceback (most recent call last):
+	...
+TypeError: last_name must be a string
+
+>>> say("Williams")
+My name is Williams
