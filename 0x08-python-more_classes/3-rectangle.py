@@ -14,6 +14,8 @@ class Rectangle:
         """
         prints the rectangle my way
         """
+        if self.__width == 0 or self.__height == 0:
+            return ""
         return self.my_print()
 
     def __init__(self, width=0, height=0):
