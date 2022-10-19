@@ -18,5 +18,18 @@ class TestMaxInteger(unittest.TestCase):
         self.assertAlmostEqual(max_integer([2, 2, 2, 2.1]), 2.1)
         self.assertEqual(max_integer(["McDonald","Glory", "Jerry"]), "McDonald")
 
+    def test_negative(self):
+        """
+        testing negatives
+        """
+        self.assertEqual(max_integer([-2, -3, -1, -6]), -1)
+        self.assertEqual(max_integer([8]), 8)
+    
+    def test_empty(self):
+        """
+        Empty List
+        """
+        self.assertEqual(max_integer([]), None)
+
 if __name__ == '__main__':
     unittest.main()
