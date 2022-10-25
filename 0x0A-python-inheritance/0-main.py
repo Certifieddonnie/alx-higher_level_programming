@@ -1,8 +1,7 @@
 #!/usr/bin/python3
-Rectangle = __import__('9-rectangle').Rectangle
+Square = __import__('11-square').Square
 
-r = Rectangle(3, 5)
+s = Square(19)
 
-print(r)
-print(r.area())
-
+print(s)
+print(s.area())
