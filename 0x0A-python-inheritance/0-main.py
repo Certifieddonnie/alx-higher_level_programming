@@ -1,10 +1,8 @@
 #!/usr/bin/python3
-BaseGeometry = __import__('6-base_geometry').BaseGeometry
+Rectangle = __import__('9-rectangle').Rectangle
 
-bg = BaseGeometry()
+r = Rectangle(3, 5)
 
-try:
-    print(bg.area())
-except Exception as e:
-    print("[{}] {}".format(e.__class__.__name__, e))
+print(r)
+print(r.area())
 
