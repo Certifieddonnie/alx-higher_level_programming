@@ -1,27 +1,16 @@
 #!/usr/bin/python3
-save_to_json_file = __import__('5-save_to_json_file').save_to_json_file
+"""
+12-main
+"""
+pascal_triangle = __import__('12-pascal_triangle').pascal_triangle
 
-filename = "my_list.json"
-my_list = [1, 2, 3]
-save_to_json_file(my_list, filename)
+def print_triangle(triangle):
+    """
+    Print the triangle
+    """
+    for row in triangle:
+        print("[{}]".format(",".join([str(x) for x in row])))
 
-filename = "my_dict.json"
-my_dict = { 
-    'id': 12,
-    'name': "John",
-    'places': [ "San Francisco", "Tokyo" ],
-    'is_active': True,
-    'info': {
-        'age': 36,
-        'average': 3.14
-    }
-}
-save_to_json_file(my_dict, filename)
 
-try:
-    filename = "my_set.json"
-    my_set = { 132, 3 }
-    save_to_json_file(my_set, filename)
-except Exception as e:
-    print("[{}] {}".format(e.__class__.__name__, e))
-
+if __name__ == "__main__":
+    print_triangle(pascal_triangle(5))
