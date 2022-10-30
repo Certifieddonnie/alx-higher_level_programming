@@ -4,7 +4,7 @@
 import unittest
 from models.base import Base
 
-class Base(unittest.TestCase):
+class TestBase(unittest.TestCase):
     """
     A Class to test the base.id function
     """
@@ -13,21 +13,32 @@ class Base(unittest.TestCase):
         Test Function to test the id = None
         """
         b1 = Base()
-        b2 = Base()
-        b3 = Base()
-        b4 = Base()
-        self.assertEqual(b1.id(), 1)
-        self.assertEqual(b2.id(), 2)
-        self.assertEqual(b3.id(), 3)
-        self.assertEqual(b4.id(), 4)
+        self.assertEqual(b1.id, 1)
 
     def test_value_id(self):
         """
         Test Function to test the id with values.
         """
         b5 = Base(12)
-        b6 = Base(14)
-        b7 = Base(15)
-        self.assertEqual(b5.id(), 12)
-        self.assertEqual(b6.id(), 14)
-        self.assertEqual(b7.id(), 25)
+        self.assertEqual(b5.id, 12)
+
+    def test_None_id_after(self):
+        """
+        Test Function to test no value after assign
+        """
+        b = Base()
+        self.assertEqual(b.id, 2)
+
+    def test_nb_private(self):
+        """Test nb_objects as a private instance attribute"""
+        b = Base(6)
+        with self.assertRaises(AttributeError):
+            print(b.nb_objects)
+        with self.assertRaises(AttributeError):
+            print(b.__nb_objects)
+
+    def test_many_args(self):
+        """Testing many arguments"""
+        with self.assertRaises(TypeError):
+            b = Base(2, 3)
+

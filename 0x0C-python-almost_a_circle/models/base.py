@@ -16,24 +16,8 @@ class Base:
         Args;
             id
         """
-        self.id = id
-
-    @property
-    def id(self):
-        """
-        id property
-        """
-        return self.__id
-
-    @id.setter
-    def id(self, value):
-        """
-        setting the id property.
-        if the id is none, __nb_objects increments by one
-        else the value is assigned
-        """
-        if value == None:
-            self.__nb_objects += 1
-            self.__id = self.__nb_objects
+        if (id == None):
+            Base.__nb_objects += 1
+            self.id = self.__nb_objects
         else:
-            self.__id = value
+            self.id = id
