@@ -9,6 +9,11 @@ class Rectangle(Base):
     """
     Rectangle Class that inherits from Base
     """
+
+    def __str__(self):
+        """String Representation"""
+        return "[Rectangle] ({:d}) {:d}/{:d} - {:d}/{:d}"\
+                .format(self.id, self.__x, self.__y, self.__width, self.__height)
     def __init__(self, width, height, x=0, y=0, id=None):
         """Initialization of the rectangle class
         Args:
@@ -19,10 +24,10 @@ class Rectangle(Base):
             id
         """
         super().__init__(id)
-        self.__width = width
-        self.__height = height
-        self.__x = x
-        self.__y = y
+        self.width = width
+        self.height = height
+        self.x = x
+        self.y = y
 
     @property
     def width(self):
@@ -83,3 +88,33 @@ class Rectangle(Base):
     def area(self):
         """Area of the Rectangle"""
         return (self.__width * self.__height)
+
+    def display(self):
+        """Prints the rectangle in stdout with character #"""
+        i = 0
+        print('\n' * self.__y, end="")
+        while (i < self.__height):
+            j = 0
+            print(" " * self.__x, end="")
+            while (j < self.__width):
+                print("#", end="")
+                j += 1
+            print()
+            i += 1
+
+    def update(self, *args):
+        """Assigns an arguments to each attribute"""
+        if (len(args)):
+            for idx, attr in enumerate(args):
+                if idx == 0:
+                    self.id = attr
+                elif idx == 1:
+                    self.__width = attr
+                elif idx == 2:
+                    self.__height = attr
+                elif idx == 3:
+                    self.__x = attr
+                elif idx == 4:
+                    self.__y = attr
+        else:
+            return 

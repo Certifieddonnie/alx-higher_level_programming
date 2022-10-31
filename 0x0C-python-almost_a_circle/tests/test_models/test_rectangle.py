@@ -2,6 +2,8 @@
 """Unittest for rectangle class
 """
 import unittest
+from io import StringIO
+from contextlib import redirect_stdout
 from models.rectangle import Rectangle
 
 
@@ -164,3 +166,68 @@ class TestRectangle(unittest.TestCase):
         """Test many args for area()"""
         with self.assertRaises(TypeError):
             r = self.r1.area(1)
+
+    def test_display(self):
+        """Testing the display method"""
+        r = Rectangle(4, 3, 2, 2, 4)
+        with StringIO() as f, redirect_stdout(f):
+            r.display()
+            output = f.getvalue()
+            self.assertEqual(output, ("#" * 4 + "\n") * 3)
+
+    def test_display_many_args(self):
+        """Testing display with many args"""
+        with self.assertRaises(TypeError):
+            self.r1.display(1)
+
+    def test_update_args(self):
+        """Testing the udpate method with *args"""
+        r = Rectangle(1, 1, 0, 0, 1)
+        self.assertEqual(str(r), "[Rectangle] (1) 0/0 - 1/1")
+        r.update(89)
+        self.assertEqual(str(r), "[Rectangle] (89) 0/0 - 1/1")
+        r.update(89, 2)
+        self.assertEqual(str(r), "[Rectangle] (89) 0/0 - 2/1")
+        r.update(89, 2, 3)
+        self.assertEqual(str(r), "[Rectangle] (89) 0/0 - 2/3")
+        r.update(89, 2, 3, 4)
+        self.assertEqual(str(r), "[Rectangle] (89) 4/0 - 2/3")
+        r.update(89, 2, 3, 4, 5)
+        self.assertEqual(str(r), "[Rectangle] (89) 4/5 - 2/3")
+
+    def test_update_args_setter(self):
+        """tests that the update method uses setter with *args"""
+        r = Rectangle(1, 1, 0, 0, 1)
+        with self.assertRaisesRegex(TypeError, "width must be an integer"):
+            r.update(1, "hello")
+        with self.assertRaisesRegex(TypeError, "height must be an integer"):
+            r.update(1, 1, "hello")
+        with self.assertRaisesRegex(TypeError, "x must be an integer"):
+            r.update(1, 1, 1, "hello")
+        with self.assertRaisesRegex(TypeError, "y must be an integer"):
+            r.update(1, 1, 1, 1, "hello")
+        with self.assertRaisesRegex(ValueError, "width must be > 0"):
+            r.update(1, 0)
+        with self.assertRaisesRegex(ValueError, "width must be > 0"):
+            r.update(1, -1)
+        with self.assertRaisesRegex(ValueError, "height must be > 0"):
+            r.update(1, 1, 0)
+        with self.assertRaisesRegex(ValueError, "height must be > 0"):
+            r.update(1, 1, -1)
+        with self.assertRaisesRegex(ValueError, "x must be >= 0"):
+            r.update(1, 1, 1, -1)
+        with self.assertRaisesRegex(ValueError, "y must be >= 0"):
+            r.update(1, 1, 1, 1, -1)
+
+    def test_update_too_many_args(self):
+        """test too many args for update"""
+        r = Rectangle(1, 1, 0, 0, 1)
+        r.update(1, 1, 1, 1, 1, 2)
+        self.assertEqual(str(r), "[Rectangle] (1) 1/1 - 1/1")
+
+    def test_update_no_args(self):
+        """test no args for update"""
+        r = Rectangle(1, 1, 0, 0, 1)
+        r.update()
+        self.assertEqual(str(r), "[Rectangle] (1) 0/0 - 1/1")
+
