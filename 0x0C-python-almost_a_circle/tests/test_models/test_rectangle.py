@@ -169,7 +169,7 @@ class TestRectangle(unittest.TestCase):
 
     def test_display(self):
         """Testing the display method"""
-        r = Rectangle(4, 3, 2, 2, 4)
+        r = Rectangle(4, 3, 0, 0, 4)
         with StringIO() as f, redirect_stdout(f):
             r.display()
             output = f.getvalue()
@@ -231,3 +231,74 @@ class TestRectangle(unittest.TestCase):
         r.update()
         self.assertEqual(str(r), "[Rectangle] (1) 0/0 - 1/1")
 
+    def test_update_kwargs(self):
+        """Testing the update method with **kwargs"""
+        r = Rectangle(1, 1, 0, 0, 1)
+        self.assertEqual(str(r), "[Rectangle] (1) 0/0 - 1/1")
+        r.update(height=10)
+        self.assertEqual(str(r), "[Rectangle] (1) 0/0 - 1/10")
+        r.update(width=11, x=2)
+        self.assertEqual(str(r), "[Rectangle] (1) 2/0 - 11/10")
+        r.update(y=3, width=4, x=5, id=89)
+        self.assertEqual(str(r), "[Rectangle] (89) 5/3 - 4/10")
+        r.update(x=6, height=7, y=8, width=9)
+        self.assertEqual(str(r), "[Rectangle] (89) 6/8 - 9/7")
+
+    def test_update_kwargs_setter(self):
+        """tests that the update method uses setter with **kwargs"""
+        r = Rectangle(1, 1, 1, 1, 1)
+        with self.assertRaises(TypeError):
+            r.update(width="hello")
+        with self.assertRaises(TypeError):
+            r.update(height="hello")
+        with self.assertRaises(TypeError):
+            r.update(x="hello")
+        with self.assertRaises(TypeError):
+            r.update(y="hello")
+        with self.assertRaises(ValueError):
+            r.update(width=-1)
+        with self.assertRaises(ValueError):
+            r.update(width=0)
+        with self.assertRaises(ValueError):
+            r.update(height=-1)
+        with self.assertRaises(ValueError):
+            r.update(height=0)
+        with self.assertRaises(ValueError):
+            r.update(x=-1)
+        with self.assertRaises(ValueError):
+            r.update(y=-1)
+
+    def test_mix_args_kwargs(self):
+        """tests output for mixed args and kwargs"""
+        r = Rectangle(1, 1, 0, 0, 1)
+        r.update(2, 2, 2, 2, 2, width=3, height=3, x=3, y=3, id=3)
+        self.assertEqual(str(r), "[Rectangle] (2) 2/2 - 2/2")
+
+    def test_extra_kwargs(self):
+        """tests for random kwargs"""
+        r = Rectangle(1, 1, 0, 0, 1)
+        r.update(hello=2)
+        self.assertEqual(str(r), "[Rectangle] (1) 0/0 - 1/1")
+
+    def test_to_dict(self):
+        """test regular to_dictionary"""
+        d1 = self.r1.to_dictionary()
+        self.assertEqual({"id": 1, "width": 10, "height": 2, "x": 0, "y": 0},
+                         d1)
+        d2 = self.r2.to_dictionary()
+        self.assertEqual({"id": 2, "width": 2, "height": 10, "x": 4, "y": 5},
+                         d2)
+        d3 = self.r3.to_dictionary()
+        self.assertEqual({"id": 20, "width": 2, "height": 10, "x": 4, "y": 5},
+                         d3)
+        d4 = self.r4.to_dictionary()
+        self.assertEqual({"id": 3, "width": 10, "height": 2, "x": 0,
+                          "y": 0}, d4)
+        self.assertTrue(type(d1) is dict)
+        self.assertTrue(type(d2) is dict)
+        self.assertTrue(type(d3) is dict)
+        self.assertTrue(type(d4) is dict)
+        r = Rectangle(1, 1, 1, 1, 1)
+        r.update(**d4)
+        self.assertEqual(str(r), str(self.r4))
+        self.assertNotEqual(r, self.r4)
