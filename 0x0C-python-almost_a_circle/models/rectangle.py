@@ -2,6 +2,7 @@
 """
 The Rectangle class module
 """
+
 from models.base import Base
 
 
@@ -13,7 +14,8 @@ class Rectangle(Base):
     def __str__(self):
         """String Representation"""
         return "[Rectangle] ({:d}) {:d}/{:d} - {:d}/{:d}"\
-                .format(self.id, self.__x, self.__y, self.__width, self.__height)
+            .format(self.id, self.__x, self.__y, self.__width, self.__height)
+
     def __init__(self, width, height, x=0, y=0, id=None):
         """Initialization of the rectangle class
         Args:

@@ -11,7 +11,7 @@ class Square(Rectangle):
     def __str__(self):
         """String Representation"""
         return "[Square] ({:d}) {:d}/{:d} - {:d}"\
-                .format(self.id, self.x, self.y, self.width)
+            .format(self.id, self.x, self.y, self.width)
 
     def __init__(self, size, x=0, y=0, id=None):
         """Initialization of the Square class"""
@@ -38,7 +38,7 @@ class Square(Rectangle):
                 elif idx == 1:
                     self.size = attr
                 elif idx == 2:
-                    self.x= attr
+                    self.x = attr
                 elif idx == 3:
                     self.y = attr
         else:
