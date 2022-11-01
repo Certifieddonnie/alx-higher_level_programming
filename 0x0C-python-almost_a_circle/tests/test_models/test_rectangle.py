@@ -2,6 +2,7 @@
 """Unittest for rectangle class
 """
 import unittest
+import os
 import json
 from io import StringIO
 from contextlib import redirect_stdout
