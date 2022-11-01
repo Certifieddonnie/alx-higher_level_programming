@@ -3,6 +3,8 @@
 The Base Module
 """
 import json
+import random
+import turtle
 import csv
 from io import StringIO
 
@@ -132,3 +134,58 @@ class Base:
         except Exception as e:
             pass
         return lst
+
+    @staticmethod
+    def draw(list_rectangles, list_squares):
+        """Opens a window and draws all the Rectangles and Squares"""
+        turtle.screensize(300,300)
+        turtle.bgpic("h4.png")
+        turtle.pensize(4)
+        turtle.shape("arrow")
+        colors = ["red", "purple", "blue"]
+
+        turtle.color(random.choices(colors))
+        for rect in list_rectangles:
+            turtle.st()
+            turtle.up()
+            turtle.setposition(rect.x, rect.y)
+            turtle.down()
+            for i in range(2):
+                turtle.speed(2)
+                turtle.begin_fill()
+                turtle.forward(rect.width)
+                turtle.left(90)
+                turtle.forward(rect.height)
+                turtle.left(90)
+                turtle.end_fill()
+            turtle.ht()
+            turtle.delay(15)
+
+        turtle.color(random.choices(colors))
+        for squ in list_squares:
+            turtle.st()
+            turtle.up()
+            turtle.setposition(squ.x, squ.y)
+            turtle.down()
+            for i in range(2):
+                turtle.speed(2)
+                turtle.begin_fill()
+                turtle.forward(squ.width)
+                turtle.left(90)
+                turtle.forward(squ.height)
+                turtle.left(90)
+                turtle.end_fill()
+            turtle.ht()
+            turtle.delay(15)
+
+        
+        turtle.color(random.choices(colors))
+        turtle.st()
+        turtle.up()
+        turtle.setposition(0, -289)
+        turtle.down()
+        turtle.write("All Squares and Rectangles have been printed",
+                    True, align="left", font=("Tahoma",8,"bold"))
+        turtle.ht()
+
+        turtle.exitonclick()
