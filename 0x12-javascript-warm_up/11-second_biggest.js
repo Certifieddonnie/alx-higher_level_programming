@@ -1,7 +1,7 @@
 #!/usr/bin/node
 /* A Script that searches the second biggest integer in the list of arguments. */
 
-const myArgs = process.argv.slice(2);
+const myArgs = parseInt(process.argv.slice(2));
 const len = myArgs.length;
 
 if (len <= 3) {
