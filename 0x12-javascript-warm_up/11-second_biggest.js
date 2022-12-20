@@ -4,7 +4,7 @@
 const myArgs = process.argv.slice(2);
 const len = myArgs.length;
 
-if (len < 3) {
+if (len <= 3) {
   console.log(0);
 }
 secondhigh(myArgs, len);
