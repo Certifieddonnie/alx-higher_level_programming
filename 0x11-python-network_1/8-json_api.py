@@ -14,7 +14,7 @@ if __name__ == "__main__":
         val = ""
     else:
         val = argv[1]
-    
+
     try:
         values = {'q': val}
         r = requests.post(url, data=values)
