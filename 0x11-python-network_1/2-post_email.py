@@ -10,13 +10,14 @@ import urllib.parse
 from sys import argv
 
 
-url = argv[1]
-values = {'email' : argv[2]}
+if __name__ == "__main__":
+    url = argv[1]
+    values = {'email' : argv[2]}
 
-data = urllib.parse.urlencode(values)
-data = data.encode('ascii')
-# print(req)
-with urllib.request.urlopen(url, data) as response:
-    page = response.read()
-    print(page.decode('utf-8'))
+    data = urllib.parse.urlencode(values)
+    data = data.encode('ascii')
+    # print(req)
+    with urllib.request.urlopen(url, data) as response:
+        page = response.read()
+        print(page.decode('utf-8'))
 
