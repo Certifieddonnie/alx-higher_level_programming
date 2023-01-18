@@ -10,8 +10,8 @@ from sys import argv
 
 if __name__ == "__main__":
     url = argv[1]
-    try:
-        r = requests.get(url)
+    r = requests.get(url)
+    if hasattr(r, 'status_code'):
+        print(f"Error code: {r.status_code}")
+    else:
         print(r.text)
-    except requests.HTTPError as e:
-        print(f"Error code: {e.status_code}")
